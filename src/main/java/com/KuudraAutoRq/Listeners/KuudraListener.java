@@ -19,7 +19,6 @@ public class KuudraListener {
 
 		String cleanedText = unformattedText.replaceAll("§.", "");
 
-		System.out.println(cleanedText);
 		if (cleanedText.matches("^Party >.*dt$")) {
 			minecraft.thePlayer.addChatMessage(new ChatComponentText("REGEX OK"));
 

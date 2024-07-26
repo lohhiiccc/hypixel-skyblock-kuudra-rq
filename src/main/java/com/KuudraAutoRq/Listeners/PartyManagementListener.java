@@ -16,7 +16,6 @@ public class PartyManagementListener {
 		String unformattedText = event.message.getUnformattedText();
 
 		if (unformattedText.equals("You are not currently in a party.") || unformattedText.equals("You left the party.") || unformattedText.equals("The party was disbanded because all invites expired and the party was empty.")) {
-			Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("debug: no party"));
 			KuudraAutoRq.getInstance().getSession().setPartyLeader("no party");
 			KuudraAutoRq.getInstance().getSession().stopSession();
 		} else {
@@ -28,7 +27,6 @@ public class PartyManagementListener {
 				String[] words = textAfterLeader.split("\\s+");
 				// Le leader est l'avant-dernier mot
 				String partyLeader = words[words.length - 2];
-				Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("debug: party leader " + partyLeader));
 				KuudraAutoRq.getInstance().getSession().setPartyLeader(partyLeader);
 				return; // Arrêter après avoir trouvé le leader
 			}
@@ -38,7 +36,6 @@ public class PartyManagementListener {
 				String newPartyLeader = matcherPartyTransfer.group(1);
 				String oldPartyLeader = matcherPartyTransfer.group(2);
 
-				Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("debug: party transferred from " + oldPartyLeader + " to " + newPartyLeader));
 				KuudraAutoRq.getInstance().getSession().setPartyLeader(newPartyLeader);
 				return;
 			}
@@ -46,7 +43,6 @@ public class PartyManagementListener {
 			Matcher matcherKick = Pattern.compile("You have been kicked from the party by (\\S+)").matcher(unformattedText);
 			if (matcherKick.find()) {
 				String kicker = matcherKick.group(1);
-				Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("debug: kicked from party by " + kicker));
 				KuudraAutoRq.getInstance().getSession().setPartyLeader("no party");
 				return;
 			}
@@ -54,7 +50,6 @@ public class PartyManagementListener {
 			Matcher matcherJoin = Pattern.compile("You have joined (\\S+)'s party!").matcher(unformattedText);
 			if (matcherJoin.find()) {
 				String newPartyLeader = matcherJoin.group(1);
-				Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("debug: joined party of " + newPartyLeader));
 				KuudraAutoRq.getInstance().getSession().setPartyLeader(newPartyLeader);
 			}
 		}
