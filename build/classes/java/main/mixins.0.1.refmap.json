@@ -1,0 +1,14 @@
+{
+  "mappings": {
+    "com/KuudraAutoRq/mixin/MixinGuiMainMenu": {
+      "initGui": "Lnet/minecraft/client/gui/GuiMainMenu;func_73866_w_()V"
+    }
+  },
+  "data": {
+    "named:intermediary": {
+      "com/KuudraAutoRq/mixin/MixinGuiMainMenu": {
+        "initGui": "Lnet/minecraft/client/gui/GuiMainMenu;func_73866_w_()V"
+      }
+    }
+  }
+}
