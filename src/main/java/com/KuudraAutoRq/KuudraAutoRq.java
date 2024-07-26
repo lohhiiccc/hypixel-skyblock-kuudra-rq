@@ -2,6 +2,7 @@ package com.KuudraAutoRq;
 
 import com.KuudraAutoRq.Listeners.KuudraListener;
 import com.KuudraAutoRq.Listeners.PartyManagementListener;
+import com.KuudraAutoRq.Listeners.TimerHudListener;
 import com.KuudraAutoRq.Objects.KuudraSession;
 import com.KuudraAutoRq.commands.KInfoSession;
 import com.KuudraAutoRq.commands.KStartSessionCommand;
@@ -43,6 +44,7 @@ public class KuudraAutoRq {
     private void registerEvent() {
         MinecraftForge.EVENT_BUS.register(new PartyManagementListener());
         MinecraftForge.EVENT_BUS.register(new KuudraListener());
+        MinecraftForge.EVENT_BUS.register(new TimerHudListener());
     }
 
     private void registerCommand() {
