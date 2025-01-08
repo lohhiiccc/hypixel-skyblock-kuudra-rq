@@ -20,7 +20,7 @@ public class KuudraAutoRq {
 
     public KuudraAutoRq() {
         instance = this;
-        session = new KuudraSession(5, 7, "");
+        session = new KuudraSession(5, 8, "");
     }
 
     public static KuudraAutoRq getInstance() {

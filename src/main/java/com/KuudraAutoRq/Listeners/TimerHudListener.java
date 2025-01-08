@@ -3,7 +3,6 @@ package com.KuudraAutoRq.Listeners;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.ScaledResolution;
-import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -27,7 +26,6 @@ public class TimerHudListener {
 	public void onClientChatReceived(ClientChatReceivedEvent event) {
 		matcher = hudListener.matcher(event.message.getUnformattedText().replaceAll("§.", ""));
 		if (matcher.find()) {
-			Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("test regex ok"));
 			displayUntil = System.currentTimeMillis() + (Long.parseLong(matcher.group(1)) * 1000);
 		}
 	}

@@ -1,8 +1,6 @@
 package com.KuudraAutoRq.Listeners;
 
 import com.KuudraAutoRq.KuudraAutoRq;
-import net.minecraft.client.Minecraft;
-import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -21,14 +19,11 @@ public class PartyManagementListener {
 		} else {
 			Matcher matcherPartyLeader = Pattern.compile("Party Leader: .*?\\s(\\S+)(?:\\s●)?").matcher(unformattedText);
 			if (matcherPartyLeader.find()) {
-				// Capture le texte pertinent après "Party Leader: "
 				String textAfterLeader = unformattedText.substring(matcherPartyLeader.start());
-				// Extraire les mots
 				String[] words = textAfterLeader.split("\\s+");
-				// Le leader est l'avant-dernier mot
 				String partyLeader = words[words.length - 2];
 				KuudraAutoRq.getInstance().getSession().setPartyLeader(partyLeader);
-				return; // Arrêter après avoir trouvé le leader
+				return;
 			}
 
 			Matcher matcherPartyTransfer = Pattern.compile("The party was transferred to (\\S+) by (\\S+)").matcher(unformattedText);

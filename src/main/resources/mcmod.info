@@ -1,16 +1,16 @@
 [
   {
-    "modid": "${modid}",
-    "name": "Xample Mod",
-    "description": "A mod that is used as an example.",
-    "version": "${version}",
-    "mcversion": "${mcversion}",
-    "url": "https://github.com/romangraef/Forge1.8.9Template/",
+    "modid": "kuudraautorq",
+    "name": "kuudraAutoRq",
+    "description": "mod for hypixel skyblock",
+    "version": "1.0.1",
+    "mcversion": "1.8.9",
+    "url": "https://github.com/lohhiiccc/hypixel-skyblock-kuudra-rq",
     "updateUrl": "",
     "authorList": [
-      "You"
+      "lohhiiccc"
     ],
-    "credits": "",
+    "credits": "https://github.com/romangraef/Forge1.8.9Template/",
     "logoFile": "",
     "screenshots": [],
     "dependencies": []
